@@ -1,0 +1,33 @@
+{
+  "name": "change-dpi",
+  "version": "0.1.0",
+  "description": "provide a RESTful interface to imagemagick's density method",
+  "main": "index.js",
+  "scripts": {
+    "start": "NODE_ENV=development node index.js"
+  },
+  "repository": "git@github.com:chevalvert/change-dpi.git",
+  "author": "Arnaud Juracek <arnaud.juracek@gmail.com> (https://github.com/arnaudjuracek)",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "cors": "^2.8.4",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "express-fileupload": "^0.4.0",
+    "fs-extra": "^6.0.1",
+    "imagemagick": "^0.1.3",
+    "log": "^1.4.0",
+    "pify": "^3.0.0",
+    "tmp": "^0.0.33"
+  },
+  "devDependencies": {
+    "datauri": "^1.1.0",
+    "eslint": "^4.19.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0"
+  }
+}
