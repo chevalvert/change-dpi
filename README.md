@@ -16,16 +16,28 @@ $ yarn install
 ```sh
 $ yarn start
 > $ NODE_ENV=development node index.js
-> Server is listenning on http://192.168.1.54:8888
+> Server is listenning on http://<ip>:<port>
 ```
 
 ## Usage
 
 ### Launch
 
+###### basic
+
 ```sh
 $ node change-dpi
 > Server is listenning on http://192.168.1.54:8888
+```
+
+###### daemon with [pm2](http://pm2.keymetrics.io/)
+
+```sh
+$ pm2 start change-dpi --log-date-format 'YY-MM-DD HH:mm:ss'
+$ pm2 save
+$ pm2 startup
+$ pm2 log change-dpi
+> YY-MM-DD HH:mm:ss: Server is listenning on http://<ip>:<port>
 ```
 
 ### API Endpoints
