@@ -44,6 +44,10 @@ function changeDPI (req, res) {
         ? (file.name.substr(0, file.name.lastIndexOf('.')) || file.name) + '.' + format
         : file.name
 
+      if (process.env.VERBOSE === 'true') {
+        console.log(filename, `(${format}, ${req.params.dpi}dpi)`, output)
+      }
+
       res.status(201).download(output, filename)
     })
     .catch(error => {
