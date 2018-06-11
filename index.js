@@ -2,7 +2,6 @@
 'use strict'
 
 const path = require('path')
-const fs = require('fs')
 
 require('dotenv').config({ path: path.resolve(__dirname, '.env') })
 process.env.NODE_ENV = process.env.NODE_ENV || 'production'
@@ -12,7 +11,6 @@ const { version } = require(path.join(__dirname, 'package.json'))
 
 const pify = require('pify')
 const tmp = require('tmp')
-
 const dpi = require(path.join(__dirname, 'lib', 'dpi'))
 const Server = require(path.join(__dirname, 'lib', 'server'))
 
@@ -20,9 +18,9 @@ Server({
   endpoint: '/api',
   port: process.env.PORT,
   credentials: {
-    key: fs.readFileSync(path.resolve(process.env.CREDENTIALS, 'key.pem')),
-    ca: fs.readFileSync(path.resolve(process.env.CREDENTIALS, 'csr.pem')),
-    cert: fs.readFileSync(path.resolve(process.env.CREDENTIALS, 'cert.pem'))
+    key: process.env.SSL_KEY,
+    ca: process.env.SSL_CHAIN,
+    cert: process.env.SSL_CERT
   }
 })
   .route('/ping', (_, res) => res.status(200).json({ version }), 'GET')
