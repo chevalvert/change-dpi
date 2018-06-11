@@ -1,6 +1,6 @@
 {
   "name": "change-dpi",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "provide a RESTful interface to imagemagick's density method",
   "main": "index.js",
   "scripts": {
