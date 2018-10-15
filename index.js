@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+j#!/usr/bin/env node
 'use strict'
 
 const path = require('path')
@@ -61,7 +61,7 @@ function changeDPI (req, res) {
     .catch(error => {
       error = error instanceof Error ? error : Error(error)
       tmp.setGracefulCleanup()
-      res.status(500).json({ error: error.message() })
+      res.status(500).json({ error: error.message })
       console.error(error)
     })
 }
