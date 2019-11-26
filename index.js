@@ -15,7 +15,7 @@ const dpi = require(path.join(__dirname, 'lib', 'dpi'))
 const Server = require(path.join(__dirname, 'lib', 'server'))
 
 Server({
-  endpoint: '/api',
+  endpoint: '/',
   httpPort: process.env.HTTP_PORT || 8080
 })
   .route('/ping', (_, res) => res.status(200).json({ version }), 'GET')
