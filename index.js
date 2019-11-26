@@ -16,18 +16,12 @@ const Server = require(path.join(__dirname, 'lib', 'server'))
 
 Server({
   endpoint: '/api',
-  httpPort: process.env.HTTP_PORT,
-  httpsPort: process.env.HTTPS_PORT,
-  credentials: {
-    key: process.env.SSL_KEY,
-    ca: process.env.SSL_CHAIN,
-    cert: process.env.SSL_CERT
-  }
+  httpPort: process.env.HTTP_PORT || 8080
 })
   .route('/ping', (_, res) => res.status(200).json({ version }), 'GET')
   .route('/dpi/:dpi/:format?', changeDPI, 'POST')
   .start()
-  .then(ports => console.log(`Server is up and running on PORTS ${ports.join(', ')}`))
+  .then(port => console.log(`Server is up and running on PORT ${port}`))
   .catch(err => console.error(err instanceof Error ? err : Error(err)))
 
 function changeDPI (req, res) {
